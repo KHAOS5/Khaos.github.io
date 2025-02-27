@@ -22,7 +22,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 ### Header 3
 
-```python3
+```python
 # Python code with syntax highlighting.
 # This is a Python code to sort and match hashes from dumping the SAM file.
 # This code will look at the raw extracted hashes with usernames and compare then to the cracked hash with the clear text password
