@@ -22,12 +22,68 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 ### Header 3
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
+```python3
+# Python code with syntax highlighting.
+# This is a Python code to sort and match hashes from dumping the SAM file.
+# This code will look at the raw extracted hashes with usernames and compare then to the cracked hash with the clear text password
+# It will then sort then to display the username, hash and the cracked password
+#!/bin/python3
+
+# Check if correct arguments are provided
+if len(sys.argv) != 4:
+    print("Usage: python3 script.py <ntlm_dump_file> <cracked_password_file> <output_file>")
+    sys.exit(1)
+
+# File names from command line arguments
+ntlm_dump_file = sys.argv[1]
+cracked_password_file = sys.argv[2]
+output_file = sys.argv[3]
+
+# Read the cracked passwords into a dictionary
+cracked_passwords = {}
+
+try:
+    with open(cracked_password_file, 'r') as cracked_file:
+        for line in cracked_file:
+            parts = line.strip().split(":")
+            if len(parts) == 2:
+                hash, password = parts
+                cracked_passwords[hash] = password
+except FileNotFoundError:
+    print(f"Error: Cracked password file '{cracked_password_file}' not found!")
+    sys.exit(1)
+
+# Process the NTLM dump file and match hashes with cracked passwords
+try:
+    with open(ntlm_dump_file, 'r') as ntlm_file, open(output_file, 'w') as output:
+        for line in ntlm_file:
+            parts = line.strip().split(":")
+            if len(parts) < 2:
+                continue  # Skip empty lines or malformed entries
+
+            username = parts[0]
+            ntlm_hash = parts[1].strip(":")
+
+            # If there is no username or hash, skip this entry
+            if not username or not ntlm_hash:
+                continue
+
+            # Remove everything before and including the first backslash (domain)
+            username = username.split("\\")[-1]
+
+            # Check if the hash is in the cracked_passwords dictionary
+            if ntlm_hash in cracked_passwords:
+                password = cracked_passwords[ntlm_hash]
+                output.write(f"User: {username}, NTLM Hash: {ntlm_hash}, Cracked Password: {password}\n")
+            else:
+                print(f"No cracked password found for NTLM Hash: {ntlm_hash}")
+
+    print(f"Matching results saved to {output_file}")
+
+except FileNotFoundError:
+    print(f"Error: NTLM dump file '{ntlm_dump_file}' not found!")
+    sys.exit(1)
+
 ```
 
 ```ruby
