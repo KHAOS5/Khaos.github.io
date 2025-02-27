@@ -1,9 +1,6 @@
 ---
 layout: default
 ---
-
-Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
-
 [Link to another page](./another-page.html).
 
 There should be whitespace between paragraphs.
@@ -23,10 +20,10 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 ### Header 3
 
 ```python
-# Python code with syntax highlighting.
 # This is a Python code to sort and match hashes from dumping the SAM file.
 # This code will look at the raw extracted hashes with usernames and compare then to the cracked hash with the clear text password
 # It will then sort then to display the username, hash and the cracked password
+
 #!/bin/python3
 
 # Check if correct arguments are provided
@@ -83,7 +80,6 @@ try:
 except FileNotFoundError:
     print(f"Error: NTLM dump file '{ntlm_dump_file}' not found!")
     sys.exit(1)
-
 ```
 
 ```ruby
