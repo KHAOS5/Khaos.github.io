@@ -17,8 +17,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 >
 > When something is important enough, you do it even if the odds are not in your favor.
 
-### Header 3
-
+#> Cracked NTLM hash sorter built using python 
 ```python
 # This is a Python code to sort and match hashes from dumping the SAM file.
 # This code will look at the raw extracted hashes with usernames and compare then to the cracked hash with the clear text password
