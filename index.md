@@ -23,6 +23,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 # This is a Python code to sort and match hashes from dumping the SAM file.
 # This code will look at the raw extracted hashes with usernames and compare then to the cracked hash with the clear text password
 # It will then sort then to display the username, hash and the cracked password
+# You need the raw NTLM dump file and a file with the cracked hashes
 
 import sys
 
