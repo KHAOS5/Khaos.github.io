@@ -24,7 +24,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 # This code will look at the raw extracted hashes with usernames and compare then to the cracked hash with the clear text password
 # It will then sort then to display the username, hash and the cracked password
 
-#!/bin/python3
+import sys
 
 # Check if correct arguments are provided
 if len(sys.argv) != 4:
@@ -80,13 +80,6 @@ try:
 except FileNotFoundError:
     print(f"Error: NTLM dump file '{ntlm_dump_file}' not found!")
     sys.exit(1)
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
 ```
 
 #### Header 4
